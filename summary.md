@@ -22,6 +22,7 @@ Scoring model architecture:
 
 5 approaches was used 
 1. Supervised AMT: Learning with Crowdsourced Labels
+
 2. Supervised Learned Reward: Learning with a Learned Reward Function
 3. Off-policy REINFORCE
 4. Off-policy REINFORCE with Learned Reward Function
@@ -31,3 +32,8 @@ Scoring model architecture:
 
 
 ![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/score.png)
+
+### What things could be improved
+One important direction for future research is personalization, i.e. building a model of each user’s personality, opinions and interests. This will allow the system to provide a better user experience by adapting the response models to known attributes of the user. 
+
+To mitigate the issues of speech recognition errors, we plan to evaluate the system with different policies through a text-based evaluation on Amazon Mechanical Turk. This would also help reduce other problems, such as errors due to incorrect turn-taking 

@@ -12,5 +12,4 @@ The dialogue manager is responsible for combining the response models together. 
 
 ### Details
 
-
-![alt text](https://drive.google.com/file/d/1_TvQmTc0s7HREkbmfR6NNAZKCMNcNXSC)
+![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/Снимок%20экрана%202020-04-23%20в%2022.46.27.png)

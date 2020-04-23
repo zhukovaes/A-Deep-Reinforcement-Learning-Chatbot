@@ -12,4 +12,22 @@ The dialogue manager is responsible for combining the response models together. 
 
 ### Details
 
+After generating the candidate response set, the dialogue manager uses a model selection policy to select the response it returns to the user. The dialogue manager must select acccording to scoring model
+
+
+Scoring model architecture:
+
 ![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/Снимок%20экрана%202020-04-23%20в%2022.46.27.png)
+
+
+5 approaches was used 
+1. Supervised AMT: Learning with Crowdsourced Labels
+2. Supervised Learned Reward: Learning with a Learned Reward Function
+3. Off-policy REINFORCE
+4. Off-policy REINFORCE with Learned Reward Function
+5. Q-learning with the Abstract Discourse Markov Decision Process
+
+### Results
+
+
+![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/score.png)

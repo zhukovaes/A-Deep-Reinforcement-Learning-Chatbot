@@ -35,10 +35,10 @@ We optimize the scoring model w.r.t. log-likelihood to predict the 4th layer, wh
 We used real scored dialogs from Alexa's users. Let ![formula](https://render.githubusercontent.com/render/math?math=h_t) be a dialogue history and let ![formula](https://render.githubusercontent.com/render/math?math=a_t) be the corresponding response, given by the system at time t. We learned linear regression model, ![formula](https://render.githubusercontent.com/render/math?math={g_{\phi}(h_t,a_t)\in[1,5]}) by minimizing the squared error between the model’s prediction and the corresponding return (Alexa user score) at the current dialogue turn
  
 
-Then, we first initialize the model with the parameters of the Supervised AMT scoring model, and then fine-tune it with the reward model outputs to minimize the squared error:
-
+Then, we fine-tune the Supervised AMT scoring model to predict the reward model outputs by minimizing the squared error.
 
 3. Off-policy REINFORCE
+
 update weights as ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off-policy%20update.png)
 where
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward.png)

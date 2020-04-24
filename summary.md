@@ -22,8 +22,20 @@ Scoring model architecture:
 
 5 approaches was used 
 1. Supervised AMT: Learning with Crowdsourced Labels
+scoring model, which is based on estimating the action-value function using supervised learning on crowdsourced labels
+
+We optimize the scoring model w.r.t. log-likelihood (cross-entropy) to predict the 4th layer, which represents the AMT label classes. Unfortunately, we do not have labels to train the last layer. Therefore, we fix the parameters of the last layer to the vector [1.0, 2.0, 3.0, 4.0, 5.0].
 
 2. Supervised Learned Reward: Learning with a Learned Reward Function
+Let ht be a dialogue history and let at be the corresponding response, given by the system at time t. We aim to learn a linear regression model, ![formula](https://render.githubusercontent.com/render/math?math=g_{\phi}), which predicts the corresponding return (Alexa user score) at the current dialogue turn:
+ ![formula](https://render.githubusercontent.com/render/math?math={g_{\phi}(h_t,a_t)\in[1,5]})
+ 
+ Let ![formula](https://render.githubusercontent.com/render/math?math=h_{dt},a_{dt},R_d}) be a set of examples, where t denotes the time step and d denotes the dialogue.
+ We learn φ by minimizing the squared error between the model’s prediction and the observed return R
+
+Then, we first initialize the model with the parameters of the Supervised AMT scoring model, and then fine-tune it with the reward model outputs to minimize the squared error:
+
+
 3. Off-policy REINFORCE
 4. Off-policy REINFORCE with Learned Reward Function
 5. Q-learning with the Abstract Discourse Markov Decision Process

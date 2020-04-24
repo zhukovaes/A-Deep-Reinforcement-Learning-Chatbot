@@ -39,13 +39,23 @@ Then, we fine-tune the Supervised AMT scoring model to predict the reward model 
 
 3. Off-policy REINFORCE
 
-update weights as ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off-policy%20update.png)
+Update scoring model params as 
+
+![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off-policy%20update.png)
+
 where
+
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward.png)
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20coef.png)
+
 4. Off-policy REINFORCE with Learned Reward Function
 
+Same to Off-policy REINFORCE except
+
+
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward%20learned.png)
+
+
 5. Q-learning with the Abstract Discourse Markov Decision Process
 
 ### Results

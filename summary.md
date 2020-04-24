@@ -37,6 +37,10 @@ Then, we first initialize the model with the parameters of the Supervised AMT sc
 
 
 3. Off-policy REINFORCE
+update weights as ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off-policy%20update.png)
+where
+![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward.png)
+![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20coef.png)
 4. Off-policy REINFORCE with Learned Reward Function
 5. Q-learning with the Abstract Discourse Markov Decision Process
 

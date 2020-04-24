@@ -58,12 +58,14 @@ Same to Off-policy REINFORCE except
 
 5. Q-learning with the Abstract Discourse Markov Decision Process
 
-!(https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/MDP.png)
+We used Markov decision process (MDP) is a framework for modeling sequential decision making. 
+
+![mdp](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/MDP.png)
 
 ### Results
 
-We used Markov decision process (MDP) is a framework for modeling sequential decision making. 
-![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/MDP.png)
+
+![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/score.png)
 
 ### What things could be improved
 One important direction for future research is personalization, i.e. building a model of each user’s personality, opinions and interests. This will allow the system to provide a better user experience by adapting the response models to known attributes of the user. 

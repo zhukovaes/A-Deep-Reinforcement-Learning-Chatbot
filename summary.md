@@ -12,7 +12,7 @@ Our system consists of 22 response models. The response models take as input a d
 The dialogue manager is responsible for combining the response models together. As input, the dialogue manager expects to be given a dialogue history and confidence values of the automatic speech recognition system. To generate a response, the dialogue manager follows a three-step procedure. First, it uses all response models to generate a set of candidate responses. Second, if there exists a priority response in the set of candidate responses, this response will be returned by the system. Third, if there are no priority responses, the response is selected by the model selection policy.
 
 
-
+![](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/dialog%20manager.png)
 ### Details
 
 After generating the candidate response set by response models, the dialogue manager uses a model selection policy to select the response it returns to the user. The dialogue manager select response acccording to scoring model.
@@ -25,16 +25,15 @@ Scoring model architecture:
 
 5 approaches to train scoring model were used 
 1. Supervised AMT: Learning with Crowdsourced Labels
-scoring model, which is based on estimating the action-value function using supervised learning on crowdsourced labels
 
-We optimize the scoring model w.r.t. log-likelihood (cross-entropy) to predict the 4th layer, which represents the AMT label classes. Unfortunately, we do not have labels to train the last layer. Therefore, we fix the parameters of the last layer to the vector [1.0, 2.0, 3.0, 4.0, 5.0].
+We use Amazon Mechanical Turk (AMT) to collect data for training the scoring model. We show human evaluators a dialogue along with 4 candidate responses, and ask them to score how appropriate each candidate response is on a 1-5 Likert-type scale. 
+
+We optimize the scoring model w.r.t. log-likelihood to predict the 4th layer, which represents the AMT label classes. We fix the parameters of the last layer to the vector [1.0, 2.0, 3.0, 4.0, 5.0]. as we do not have labels to train it.
 
 2. Supervised Learned Reward: Learning with a Learned Reward Function
-Let ht be a dialogue history and let at be the corresponding response, given by the system at time t. We aim to learn a linear regression model, ![formula](https://render.githubusercontent.com/render/math?math=g_{\phi}), which predicts the corresponding return (Alexa user score) at the current dialogue turn:
- ![formula](https://render.githubusercontent.com/render/math?math={g_{\phi}(h_t,a_t)\in[1,5]})
+
+We used real scored dialogs from Alexa's users. Let ![formula](https://render.githubusercontent.com/render/math?math=h_t) be a dialogue history and let ![formula](https://render.githubusercontent.com/render/math?math=a_t) be the corresponding response, given by the system at time t. We learned linear regression model, ![formula](https://render.githubusercontent.com/render/math?math={g_{\phi}(h_t,a_t)\in[1,5]}) by minimizing the squared error between the model’s prediction and the corresponding return (Alexa user score) at the current dialogue turn
  
- Let ![formula](https://render.githubusercontent.com/render/math?math=h_{dt},a_{dt},R_d}) be a set of examples, where t denotes the time step and d denotes the dialogue.
- We learn φ by minimizing the squared error between the model’s prediction and the observed return R
 
 Then, we first initialize the model with the parameters of the Supervised AMT scoring model, and then fine-tune it with the reward model outputs to minimize the squared error:
 

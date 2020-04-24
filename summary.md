@@ -58,9 +58,11 @@ Same to Off-policy REINFORCE except
 
 5. Q-learning with the Abstract Discourse Markov Decision Process
 
-We used Markov decision process (MDP) is a framework for modeling sequential decision making. 
+We used Markov decision process (MDP) as a framework for modeling sequential decision making. 
 
 ![mdp](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/MDP.png)
+
+Here  Z is dialogue atate params {Accept, Reject, Request, Politics, Generic Question, Personal Question, Statement, Greeting, Goodbye,Other, Negative sentiment, Neutral sentiment, Positive sentiment, Generic user utterance, not generic user utterance}
 
 ### Results
 

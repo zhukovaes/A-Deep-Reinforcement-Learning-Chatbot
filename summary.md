@@ -2,17 +2,20 @@
 Link https://arxiv.org/pdf/1709.02349.pdf
 
 ### Problem
-Dialogue systems and conversational agents - including chatbots, personal assistants and voice- control interfaces - are becoming ubiquitous in modern society. Building intelligent conversational agents remains a major unsolved problem in artificial intelligence research. In 2016, Amazon.com Inc proposed an international university competition with the goal of building a socialbot: a spoken conversational agent capable of conversing coherently and engagingly with humans on popular topics, such as entertainment, fashion, politics, sports, and technology. 
+Dialogue systems and conversational agents including chatbots, personal assistants and voice control interfaces are becoming ubiquitous in modern society. In 2016, Amazon.com Inc proposed an international university competition with the goal of building a socialbot: a spoken conversational agent capable of conversing coherently and engagingly with humans on popular topics, such as entertainment, fashion, politics, sports, and technology. Building intelligent conversational agents remains a major unsolved problem in artificial intelligence research.
 
 ### Solution
+The idea is to create an ensemble of 22 response models with dialogue manager that choose the response.
 
-Our system consists of an ensemble of 22 response models. The response models take as input a dialogue and output a response in natural language text. In addition, the response models may also output one or several scalar values, indicating their internal confidence. As will be explained later, the response models have been engineered to generate responses on a diverse set of topics using a variety of strategies.
+Our system consists of 22 response models. The response models take as input a dialogue and output a response in natural language text. They have been engineered to generate responses on a diverse set of topics using a variety of strategies.
 
 The dialogue manager is responsible for combining the response models together. As input, the dialogue manager expects to be given a dialogue history and confidence values of the automatic speech recognition system. To generate a response, the dialogue manager follows a three-step procedure. First, it uses all response models to generate a set of candidate responses. Second, if there exists a priority response in the set of candidate responses, this response will be returned by the system. Third, if there are no priority responses, the response is selected by the model selection policy.
 
+
+
 ### Details
 
-After generating the candidate response set, the dialogue manager uses a model selection policy to select the response it returns to the user. The dialogue manager must select acccording to scoring model
+After generating the candidate response set by response models, the dialogue manager uses a model selection policy to select the response it returns to the user. The dialogue manager select response acccording to scoring model.
 
 
 Scoring model architecture:
@@ -20,7 +23,7 @@ Scoring model architecture:
 ![alt text](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/Снимок%20экрана%202020-04-23%20в%2022.46.27.png)
 
 
-5 approaches was used 
+5 approaches to train scoring model were used 
 1. Supervised AMT: Learning with Crowdsourced Labels
 scoring model, which is based on estimating the action-value function using supervised learning on crowdsourced labels
 
@@ -42,6 +45,8 @@ where
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward.png)
 ![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20coef.png)
 4. Off-policy REINFORCE with Learned Reward Function
+
+![formula](https://github.com/zhukovaes/A-Deep-Reinforcement-Learning-Chatbot/blob/master/off%20policy%20reward%20learned.png)
 5. Q-learning with the Abstract Discourse Markov Decision Process
 
 ### Results
